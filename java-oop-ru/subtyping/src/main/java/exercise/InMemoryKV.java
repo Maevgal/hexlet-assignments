@@ -7,7 +7,7 @@ import java.util.Map;
 class InMemoryKV implements KeyValueStorage {
     Map<String, String> map;
 
-    public InMemoryKV(Map<String, String> map) {
+    InMemoryKV(Map<String, String> map) {
         this.map = new HashMap<>(map);
     }
 

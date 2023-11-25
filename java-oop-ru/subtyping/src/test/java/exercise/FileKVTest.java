@@ -1,12 +1,13 @@
 package exercise;
 
-import java.util.HashMap;
-import org.junit.jupiter.api.BeforeEach;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeEach;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.HashMap;
 // BEGIN
 
 // END
@@ -22,8 +23,6 @@ class FileKVTest {
         String content = mapper.writeValueAsString(new HashMap<String, String>());
         Files.writeString(filepath, content, StandardOpenOption.CREATE);
     }
-
     // BEGIN
-    
     // END
 }

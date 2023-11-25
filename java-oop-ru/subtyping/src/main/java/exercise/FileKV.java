@@ -9,7 +9,7 @@ class FileKV implements KeyValueStorage {
     String path;
     Map<String, String> map;
 
-    public FileKV(String path, Map<String, String> map) {
+    FileKV(String path, Map<String, String> map) {
         this.path = path;
         this.map = new HashMap<>(map);
         Utils.writeFile(path, Utils.serialize(map));
