@@ -44,12 +44,5 @@ class FileKV implements KeyValueStorage {
         Utils.unserialize(Utils.serialize(map));
         return map;
     }
-
-    public static void main(String[] args) {
-        KeyValueStorage storage = new FileKV("src/test/resources/file", Map.of("key", "value"));
-        // Получение значения по ключу
-        storage.set("key", "dfd");
-        System.out.println(storage.get("key", "default"));
-    }
 }
 // END
