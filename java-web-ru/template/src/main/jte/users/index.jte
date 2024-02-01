@@ -12,26 +12,22 @@
     <title>Список пользователей</title>
 </head>
 <body>
-@if(page.getUsers().isEmpty())
-    <p>Нет пользователей/p>
-@else
-    <div class="mx-auto p-4 py-md-5">
-        <main>
-            <h1>Пользователи</h1>
-            <table class="table table-striped">
-                @for(var user : page.getUsers())
-                    <tr>
-                        <td>
-                            ${user.getId()}
-                        </td>
-                        <td>
-                            <a href="/users/${user.getId()}">${user.getFirstName()} ${user.getLastName()}</a>
-                        </td>
-                    </tr>
-                @endfor
-            </table>
-        </main>
-    </div>
-@endif
+<div class="mx-auto p-4 py-md-5">
+    <main>
+        <h1>Пользователи</h1>
+        <table class="table table-striped">
+            @for(var user : page.getUsers())
+                <tr>
+                    <td>
+                        ${user.getId()}
+                    </td>
+                    <td>
+                        <a href="/users/${user.getId()}">${user.getFirstName()} ${user.getLastName()}</a>
+                    </td>
+                </tr>
+            @endfor
+        </table>
+    </main>
+</div>
 </body>
 </html>
