@@ -2,7 +2,7 @@
 @param UsersPage page
 
 @template.layout.page(
-content = @`
+content = @'
     <h1>Пользователи</h1>
     <table class="table table-striped">
         @for(var user : page.getUsers())
@@ -16,8 +16,8 @@ content = @`
             </tr>
         @endfor
     </table>
-`,
-footer = @`
+',
+footer = @'
     <p>Thanks for visiting, come again soon!</p>
-`
+'
 )

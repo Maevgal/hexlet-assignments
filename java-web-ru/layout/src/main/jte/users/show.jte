@@ -3,11 +3,11 @@
 
 @template.layout.page(
 
-content = @`
+content = @'
     <h2>${page.getUser().getFirstName()} ${page.getUser().getLastName()}</h2>
     <div>${page.getUser().getEmail()}</div>
-`,
-footer = @`
+'',
+footer = @'
     <p>Thanks for visiting, come again soon!</p>
-`
+'
 )
