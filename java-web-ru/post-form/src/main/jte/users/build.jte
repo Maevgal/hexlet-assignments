@@ -23,11 +23,5 @@
             <input type="password" required name="password" />
         </label>
     </div>
-    <div>
-        <label>
-            Confirm the password
-            <input type="password" required name="passwordConfirmation" />
-        </label>
-    </div>
     <input type="submit" value="Register" />
 </form>
