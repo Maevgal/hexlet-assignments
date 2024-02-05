@@ -29,13 +29,13 @@ public final class App {
         });
 
         // BEGIN
-        app.get("/users/build", ctx -> {
+        app.get("users/build", ctx -> {
             ctx.render("users/build.jte");
         });
 
         app.post("/users", ctx -> {
-            var firstName = StringUtils.capitalize(ctx.formParam("firstName").trim());
-            var lastName = ctx.formParam("lastName").trim();
+            var firstName = StringUtils.capitalize(ctx.formParam("firstName"));
+            var lastName = StringUtils.capitalize(ctx.formParam("lastName"));
             var email = ctx.formParam("email").trim().toLowerCase();
             var password = ctx.formParam("password");
             var encryptedPassword = Security.encrypt(password);
