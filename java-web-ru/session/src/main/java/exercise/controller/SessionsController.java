@@ -24,15 +24,15 @@ public class SessionsController {
     }
 
     public static void create(Context ctx) {
-        var name = ctx.formParam("name");
-        var password = ctx.formParam("password");
-        var encryptedPassword = Security.encrypt(password);
-        User user = UsersRepository.findByName(name);
-        if (user == null || !user.getPassword().equals(password)) {
-            LoginPage page = new LoginPage(name, "Wrong username or password");
+        var getNickname = ctx.formParam("name");
+        var getPassword = ctx.formParam("password");
+        var getEncryptPassword = Security.encrypt(getPassword);
+        User user = UsersRepository.findByName(getNickname);
+        if (user == null || !user.getPassword().equals(getEncryptPassword)) {
+            LoginPage page = new LoginPage(getNickname, "Wrong username or password");
             ctx.render("build.jte", Collections.singletonMap("page", page));
         } else {
-            ctx.sessionAttribute("currentUser", name);
+            ctx.sessionAttribute("currentUser", getNickname);
             ctx.redirect(NamedRoutes.rootPath());
         }
     }
