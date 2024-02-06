@@ -23,6 +23,7 @@ public class NamedRoutes {
     }
 
     // BEGIN
+
     public static String editPostPath(Long id) {
         return editPostPath(String.valueOf(id));
     }
