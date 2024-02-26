@@ -20,7 +20,10 @@ public class Application {
                     e.printStackTrace();
                 }
 
-                System.out.println("Method " + method.getName() + " returns a value of type " + method.getGenericReturnType());
+                System.out.println("Method " +
+                        method.getName() +
+                        " returns a value of type " +
+                        method.getGenericReturnType());
             }
         }
         // END
