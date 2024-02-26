@@ -20,12 +20,15 @@ public class Application {
                     e.printStackTrace();
                 }
 
-                System.out.println("Method " +
-                        method.getName() +
-                        " returns a value of type " +
-                        method.getGenericReturnType());
+                String typeName = method.getGenericReturnType().getTypeName();
+                System.out.println("Method " + method.getName()
+                        + " returns a value of type " + getShortType(typeName));
             }
         }
         // END
+    }
+
+    private static String getShortType(String typeName) {
+        return typeName.contains(".") ? typeName.substring(typeName.lastIndexOf(".") + 1) : typeName;
     }
 }
