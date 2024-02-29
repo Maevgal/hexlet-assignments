@@ -39,7 +39,7 @@ public class PostsController {
     @ResponseStatus(HttpStatus.OK)
     public PostDTO show(@PathVariable long id) {
         Post post = postRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Post with id %d not found".formatted(id)));
         PostDTO postDTO = postToDTO(post);
         return postDTO;
     }
