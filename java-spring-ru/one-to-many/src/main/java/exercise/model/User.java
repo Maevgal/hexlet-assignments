@@ -48,7 +48,7 @@ public class User {
     private List<Task> tasks = new ArrayList<>();
     // END
 
-    public void addTask(Task task) {
+/*    public void addTask(Task task) {
         tasks.add(task);
         task.setDeveloper(this);
     }
@@ -56,5 +56,5 @@ public class User {
     public void removeTask(Task task) {
         tasks.remove(task);
         task.setDeveloper(null);
-    }
+    }*/
 }
