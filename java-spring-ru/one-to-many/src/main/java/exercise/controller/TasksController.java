@@ -52,10 +52,10 @@ public class TasksController {
     @ResponseStatus(HttpStatus.CREATED)
     public TaskDTO create(@Valid @RequestBody TaskCreateDTO taskData) {
         Task task = taskMapper.map(taskData);
-        Long idDeveloper = task.getDeveloper().getId();
+        Long idDeveloper = task.getAssignee().getId();
         User user = userRepository.findById(idDeveloper)
                 .orElseThrow(() -> new ResourceNotFoundException("Not found developer wit id %d".formatted(idDeveloper)));
-        task.setDeveloper(user);
+        task.setAssignee(user);
         taskRepository.save(task);
         return taskMapper.map(task);
     }
@@ -66,11 +66,11 @@ public class TasksController {
                 .orElseThrow(() -> new ResourceNotFoundException("Task with id %d not found"
                         .formatted(id)));
         taskMapper.update(taskUpdateDTO, task);
-        Long idDeveloper = task.getDeveloper().getId();
+        Long idDeveloper = task.getAssignee().getId();
         User user = userRepository.findById(idDeveloper)
                 .orElseThrow(() -> new ResourceNotFoundException("Not found developer wit id %d"
                         .formatted(idDeveloper)));
-        task.setDeveloper(user);
+        task.setAssignee(user);
         taskRepository.save(task);
         return taskMapper.map(task);
     }

@@ -43,6 +43,6 @@ public class Task {
     // BEGIN
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @NotBlank
-    private User developer;
+    private User assignee;
     // END
 }
