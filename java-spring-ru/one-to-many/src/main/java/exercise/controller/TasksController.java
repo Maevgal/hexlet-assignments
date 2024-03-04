@@ -5,7 +5,6 @@ import exercise.dto.TaskDTO;
 import exercise.dto.TaskUpdateDTO;
 import exercise.exception.ResourceNotFoundException;
 import exercise.mapper.TaskMapper;
-import exercise.mapper.UserMapper;
 import exercise.model.Task;
 import exercise.model.User;
 import exercise.repository.TaskRepository;
@@ -33,7 +32,6 @@ public class TasksController {
     private TaskRepository taskRepository;
     private UserRepository userRepository;
     private TaskMapper taskMapper;
-    private UserMapper userMapper;
 
     @GetMapping(path = "")
     public List<TaskDTO> index() {
@@ -65,11 +63,13 @@ public class TasksController {
     @PutMapping(path = "/{id}")
     public TaskDTO update(@PathVariable long id, @Valid @RequestBody TaskUpdateDTO taskUpdateDTO) {
         Task task = taskRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Task with id %d not found".formatted(id)));
+                .orElseThrow(() -> new ResourceNotFoundException("Task with id %d not found"
+                        .formatted(id)));
         taskMapper.update(taskUpdateDTO, task);
         Long idDeveloper = task.getDeveloper().getId();
         User user = userRepository.findById(idDeveloper)
-                .orElseThrow(() -> new ResourceNotFoundException("Not found developer wit id %d".formatted(idDeveloper)));
+                .orElseThrow(() -> new ResourceNotFoundException("Not found developer wit id %d"
+                        .formatted(idDeveloper)));
         task.setDeveloper(user);
         taskRepository.save(task);
         return taskMapper.map(task);
