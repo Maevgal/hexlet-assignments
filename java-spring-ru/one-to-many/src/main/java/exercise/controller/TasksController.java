@@ -66,7 +66,7 @@ public class TasksController {
                 .orElseThrow(() -> new ResourceNotFoundException("Task with id %d not found"
                         .formatted(id)));
         taskMapper.update(taskUpdateDTO, task);
-        Long idDeveloper = task.getAssignee().getId();
+        Long idDeveloper = taskUpdateDTO.getAssigneeId();
         User user = userRepository.findById(idDeveloper)
                 .orElseThrow(() -> new ResourceNotFoundException("Not found developer wit id %d"
                         .formatted(idDeveloper)));
@@ -76,6 +76,7 @@ public class TasksController {
     }
 
     @DeleteMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable long id) {
         taskRepository.deleteById(id);
     }
